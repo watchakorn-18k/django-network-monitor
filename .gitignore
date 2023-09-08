@@ -1,0 +1,5 @@
+_env/
+wk18k/wk18k/__pycache__/
+wk18k/users/__pycache__/
+wk18k/network_monitor/__pycache__/
+wk18k/home/__pycache__/
