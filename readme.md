@@ -74,4 +74,6 @@ Add static file
   </tbody>
 </table>
 
+Copyright © 2023 All right reserved by https://github.com/watchakorn-18k/django-network-monitor/
+
 </div>
