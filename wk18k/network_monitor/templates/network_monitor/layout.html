@@ -1,6 +1,7 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
-
+{% load static %}
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -8,6 +9,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@200&display=swap" rel="stylesheet">
     <title>{% block title %}{% endblock title %}</title>
+    <link rel="icon" type="image/x-icon" href="{% static 'favicon.ico' %}">
     <style>
         body {
             font-family: 'Kanit', sans-serif;
@@ -52,8 +54,8 @@
     </style>
     <footer class="footer footer-center p-4 bg-base-300 text-base-content">
         <aside>
-            <p>Copyright © 2023 - All right reserved by <a class="link" href="http://github.com/watchakorn-18k"
-                    target="_blank" rel="noopener noreferrer">wk18k</a></p>
+            <p>Copyright © 2023 - <script>document.write(new Date().getFullYear())</script> All right reserved by <a class="link" href="https://github.com/watchakorn-18k/django-network-monitor"
+                    target="_blank" rel="noopener noreferrer">https://github.com/watchakorn-18k/django-network-monitor/</a></p>
         </aside>
     </footer>
 </body>
