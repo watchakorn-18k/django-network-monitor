@@ -4,6 +4,8 @@
 
 Test run on raspberry pi 4 (4GB)
 
+![](https://media.discordapp.net/attachments/372372440334073859/1149791658808967330/Screenshot_2023-09-09_023507.png?width=1440&height=442)
+
 </div>
 
 ## User
