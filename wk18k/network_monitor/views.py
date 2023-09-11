@@ -19,13 +19,26 @@ class NewUrlForm(forms.Form):
         widget=forms.TextInput(attrs={"class": "input input-bordered"}),
         required=False,
     )
+class UpdateUrlForm(forms.Form):
+    name_update = forms.CharField(
+        label="ชื่อเว็บไซต์",
+        widget=forms.TextInput(attrs={"class": "input input-bordered"}),
+    )
+    url_update = forms.URLField(
+        label="URL", widget=forms.TextInput(attrs={"class": "input input-bordered"})
+    )
+    status_update = forms.CharField(
+        label="สถานะ",
+        widget=forms.TextInput(attrs={"class": "input input-bordered"}),
+        required=False,disabled=True
+    )
 
 
 def index(req):
     return render(
         req,
         "network_monitor/index.html",
-        {"network_monitor": NetworkMonitorDB.objects.all(), "form": NewUrlForm()},
+        {"network_monitor": NetworkMonitorDB.objects.all(), "form": NewUrlForm(),"form_update":UpdateUrlForm()},
     )
 
 
@@ -72,3 +85,19 @@ def table_data_view(request):
 
     # Return the data as a JSON response
     return JsonResponse(data, safe=False)
+
+def update_data(req,id):
+    if req.method == "POST":
+        form = UpdateUrlForm(req.POST)
+        if form.is_valid():
+            entry = NetworkMonitorDB.objects.get(id=id)
+            entry.name = form.cleaned_data["name_update"]
+            entry.url = form.cleaned_data["url_update"]
+            entry.save()
+            return redirect("network_monitor:index")
+    else:
+        entry = NetworkMonitorDB.objects.get(id=id)
+        try:
+            return JsonResponse({"name":entry.name,"url":entry.url,"status":entry.status})
+        except ObjectDoesNotExist:
+            return redirect("network_monitor:index")

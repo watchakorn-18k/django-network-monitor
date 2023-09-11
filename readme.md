@@ -4,7 +4,7 @@
 
 Test run on raspberry pi 4 (4GB)
 
-![](https://media.discordapp.net/attachments/372372440334073859/1149791658808967330/Screenshot_2023-09-09_023507.png?width=1440&height=442)
+![](https://media.discordapp.net/attachments/372372440334073859/1150870681416913037/gamedfdsf.gif)
 
 </div>
 
@@ -26,6 +26,8 @@ cd wk18k
 python manage.py makemigrations
 python manage.py migrate
 python manage.py runserver
+
+python manage.py createsuperuser
 ```
 
 ## Code that is unique from other codes
