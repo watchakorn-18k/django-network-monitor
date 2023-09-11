@@ -1,6 +1,7 @@
 from django import forms
 from django.shortcuts import render, redirect
 from django.core.exceptions import ObjectDoesNotExist
+from django.http import JsonResponse
 from .models import NetworkMonitorDB
 from .thread_ping import *
 
@@ -54,3 +55,20 @@ def add_data(req):
         "network_monitor/index.html",
         {"network_monitor": NetworkMonitorDB.objects.all(), "form": form},
     )
+
+def table_data_view(request):
+    # Query the database or any other data source to get the updated table data
+    entries = NetworkMonitorDB.objects.all()
+
+    # Format the data as a list of dictionaries containing the required fields
+    data = [
+        {
+            'id': entry.id,
+            'status': entry.status,
+            'latency': entry.latency,
+        }
+        for entry in entries
+    ]
+
+    # Return the data as a JSON response
+    return JsonResponse(data, safe=False)

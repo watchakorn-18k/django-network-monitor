@@ -40,10 +40,12 @@ def start_ping():
             except requests.Timeout:
                 print("POST request timed out (502 error)")
                 update_record(item.id, 502)
+                update_latency(item.id, "9999 ms")
             except:
                 update_record(item.id, 404)
+                update_latency(item.id, "9999 ms")
 
-        time.sleep(5)
+        # time.sleep(1)
 
 
 threading.Thread(target=start_ping).start()
