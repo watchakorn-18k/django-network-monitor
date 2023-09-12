@@ -89,7 +89,7 @@
                       </svg></button
                   ></a>
                 </li>
-                <li onclick="remove_data({{i.id}})">
+                <li onclick="remove_data_js({{i.id}})">
                   <a class="hover:text-red-500"
                     ><button>
                       <svg
@@ -239,7 +239,7 @@
   // Refresh table data every 1 minute
   setInterval(updateTableData, 1000);
 
-  const remove_data = (id) => {
+  const remove_data_js = (id) => {
     let url = "{% url 'network_monitor:remove_data' id=0 %}".replace("0", id);
     window.location.replace(url);
   };
