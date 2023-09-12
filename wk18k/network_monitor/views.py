@@ -42,7 +42,7 @@ def index(req):
     )
 
 
-def remove_data(id):
+def remove_data(request,id):
     try:
         NetworkMonitorDB.objects.get(id=id).delete()
         return redirect("network_monitor:index")
