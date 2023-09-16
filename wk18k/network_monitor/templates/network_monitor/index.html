@@ -1,8 +1,7 @@
 {% extends 'network_monitor/layout.html' %}
 {% block title %}Network Monitor{% endblock title %}
 {% block content %}
-
-{% with name="World" %}     
+  
 
 
 
@@ -11,8 +10,6 @@
         {% if network_monitor.count %}{% else %}display:none{% endif %}
     }
 </style>
-{{name}}
-{% endwith %}
 <div class="flex flex-col gap-10 justify-between">
   <h1 class="text-2xl text-center">Network Monitor {% if request.user.is_authenticated %}| {{ request.user.username }} {% endif %}</h1>
   
@@ -169,7 +166,7 @@
 </dialog>
 <dialog id="updateForm" class="modal modal-bottom sm:modal-middle">
   <div class="modal-box">
-    <h3 class="font-bold text-lg">เพิ่มข้อมูล</h3>
+    <h3 class="font-bold text-lg">อัพเดทข้อมูล</h3>
     <div class="modal-action flex justify-center">
         <form id="formUpdate" method="post">
         {% csrf_token %}
