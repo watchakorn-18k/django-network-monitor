@@ -21,12 +21,23 @@ password = 12345678
 
 ```
 git clone https://github.com/watchakorn-18k/django-network-monitor
+```
+```
 cd django-network-monitor
+```
+```
 cd wk18k
+```
+```
 python manage.py makemigrations
+```
+```
 python manage.py migrate
+```
+```
 python manage.py runserver
-
+```
+```
 python manage.py createsuperuser
 ```
 
